@@ -16,35 +16,32 @@
 extern char tilfont, palfont;
 extern char gfxpsrite, gfxpsrite_end;
 extern char palsprite, palsprite_end;
-
+ 
 //---------------------------------------------------------------------------------
 int main(void)
 {
     int spriteX = 0;
     int spriteY = 0;
+    
     // Initialize SNES 
-    consoleInit();
+    consoleInit();   
 
     // Initialize text console with our font
     consoleSetTextVramBGAdr(0x6800);
     consoleSetTextVramAdr(0x3000);
-    consoleSetTextOffset(0x0100);
-    consoleInitText(0, 16 * 2, &tilfont, &palfont);
-
+    consoleSetTextOffset(0x0100); 
+    consoleInitText(0, 16 * 2,  &tilfont, &palfont);  
+ 
     // Init Sprites gfx and palette with default size of 32x32
     oamInitGfxSet(&gfxpsrite, (&gfxpsrite_end - &gfxpsrite), &palsprite, (&palsprite_end - &palsprite), 0, 0x0000, OBJ_SIZE32_L64);
-
-    // Define sprites parameters
+    // Define sprites parameters 
     //every new sprite must be incremented by 4 (*SPRITE_SIZE)
     oamSet(0*SPRITE_SIZE, spriteX, spriteY, 3, 0, 0, 0, 0); // Put sprite in 100,100, with maximum priority 3 from tile entry 0, palette 0
-    oamSetEx(0, OBJ_SMALL, OBJ_SHOW);
-    
-    oamSet(1*SPRITE_SIZE, 100, 175, 3, 0, 0, 0, 0);
+    oamSetEx(0*SPRITE_SIZE, OBJ_LARGE, OBJ_SHOW);
+    oamSet(1*SPRITE_SIZE, spriteX, spriteY+64, 3, 0, 1, 0, 0); // Put sprite in 100,100, with maximum priority 3 from tile entry 0, palette 0
     oamSetEx(1*SPRITE_SIZE, OBJ_SMALL, OBJ_SHOW);
-    
-    oamSet(2*SPRITE_SIZE, 125, 100, 3, 0, 0, 0, 0);
+    oamSet(2*SPRITE_SIZE, spriteX+32, spriteY+64, 3, 0, 1, 4, 0); // Put sprite in 100,100, with maximum priority 3 from tile entry 0, palette 0
     oamSetEx(2*SPRITE_SIZE, OBJ_SMALL, OBJ_SHOW);
-
     // Init background
     bgSetGfxPtr(0, 0x2000);
     bgSetMapPtr(0, 0x6800, SC_32x32);
@@ -57,7 +54,7 @@ int main(void)
     // Draw a wonderful text :P
     consoleDrawText(10, 10, "Hello World !");
     consoleDrawText(6, 14, "DEEZ NUTSSSSSSSSS");
-
+ 
     // Wait for nothing :P
     setScreenOn();
     
@@ -78,24 +75,27 @@ int main(void)
         }else{
             consoleDrawText(12, 20, "     ");
         }
+        int speed = 2;
         if (pad0){
             // Update sprite with current pad
 			if(pad0 & KEY_UP) {
-				spriteY--;
+				spriteY -= speed;
 			}
 			if(pad0 & KEY_LEFT) {
-				spriteX--;
+				spriteX -= speed;
             }
 			if(pad0 & KEY_RIGHT) {
-				spriteX++;
+				spriteX += speed;
 			}
 			if(pad0 & KEY_DOWN) {
-			    spriteY++;
+			    spriteY += speed;
 			}
         }
 
         //set sprite at index 0 to spriteX, spriteY coordinates
         oamSetXY(0*SPRITE_SIZE, spriteX, spriteY); 
+        oamSetXY(1*SPRITE_SIZE, spriteX, spriteY+64); 
+        oamSetXY(2*SPRITE_SIZE, spriteX+32, spriteY+64); 
 
         WaitForVBlank();
     }

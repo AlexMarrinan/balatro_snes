@@ -9,11 +9,11 @@ palfont:
 .incbin "pvsneslibfont.pal"
 
 gfxpsrite:
-.incbin "sprites.pic"
+.incbin "card.pic"
 gfxpsrite_end:
 
 palsprite:
-.incbin "sprites.pal"
+.incbin "card.pal"
 palsprite_end:
 
 .ends

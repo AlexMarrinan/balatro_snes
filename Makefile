@@ -18,5 +18,9 @@ clean: cleanBuildRes cleanRom cleanGfx
 pvsneslibfont.pic: pvsneslibfont.png
 	@echo convert font with no tile reduction ... $(notdir $@)
 	$(GFXCONV) -s 8 -o 16 -u 16 -p -e 0 -i $<
-
+card.pic: card.png
+	@echo convert font with no tile reduction ... $(notdir $@)
+	$(GFXCONV) -s 8 -o 16 -u 16 -p -e 0 -t png -i $<
+	
 bitmaps : pvsneslibfont.pic
+bitmaps : card.pic
