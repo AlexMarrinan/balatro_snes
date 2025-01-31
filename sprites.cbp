@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="sprites" />
+		<Option makefile_is_custom="1" />
+		<Option execution_dir="/home/brig/SnesDev/sprites" />
+		<Option pch_mode="2" />
+		<Option compiler="snes" />
+		<MakeCommands>
+			<Build command="$make -f $makefile" />
+			<CompileFile command="$make -f $makefile" />
+			<Clean command="$make -f $makefile clean" />
+			<DistClean command="$make -f $makefile distclean$target" />
+			<AskRebuildNeeded command="$make -q -f $makefile clean" />
+			<SilentBuild command="$make -f $makefile &gt; $(CMD_NULL)" />
+		</MakeCommands>
+		<Build>
+			<Target title="Release">
+				<Option output="bin/Release/sprites" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="snes" />
+				<Compiler>
+					<Add directory="../sprites" />
+					<Add directory="./" />
+				</Compiler>
+				<MakeCommands>
+					<Build command="$make -f $makefile" />
+					<CompileFile command="$make -f $makefile" />
+					<Clean command="$make -f $makefile clean" />
+					<DistClean command="$make -f $makefile distclean$target" />
+					<AskRebuildNeeded command="$make -q -f $makefile clean" />
+					<SilentBuild command="$make -f $makefile &gt; $(CMD_NULL)" />
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="GS_Game.h" />
+		<Unit filename="GS_Title.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="GS_Title.h" />
+		<Unit filename="Makefile" />
+		<Unit filename="S2D.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="S2D.h" />
+		<Unit filename="SpriteManager.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="SpriteManager.h" />
+		<Unit filename="Utils.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Utils.h" />
+		<Unit filename="data.asm" />
+		<Unit filename="gfxDefines.h" />
+		<Unit filename="gfxTiles.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="hdr.asm" />
+		<Unit filename="main.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="main.h" />
+		<Extensions>
+			<code_completion>
+				<search_path add="/home/brig/SnesDev/sprites" />
+			</code_completion>
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

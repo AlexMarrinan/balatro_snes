@@ -1,5 +1,10 @@
 [objects]
-src/hello_world.obj
+GS_Title.obj
+S2D.obj
+SpriteManager.obj
+Utils.obj
+gfxTiles.obj
+main.obj
 data.obj
 hdr.obj
 c:\pvsneslib\pvsneslib\lib\LoROM_SlowROM/crt0_snes.obj
