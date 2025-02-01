@@ -8,6 +8,4 @@
 #include "SpriteManager.h"
 
 #define TS_BLINK_DL 5
-
-
 #endif // GS_TITLE_H

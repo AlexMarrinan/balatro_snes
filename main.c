@@ -4,6 +4,10 @@ u16 GameState;
 bool IsRunning;
 u16 G_HighScore;
 
+tSprite Sprites[TS_SpriteMax];
+tCard Cards[TS_CARDMAX]; 
+s8 hoveredCardIndex;
+
 void zInitGFX()
 {
 	u16 off,tc;
@@ -19,7 +23,7 @@ void zInitGFX()
 
 	vsync();
 	SPR_SetPalette(SP_PALID_CHICK64,SP_PALCC_CHICK64,&dbSpr_P_chick64);
-	SPR_SetPalette(SP_PALID_PIDGE64,SP_PALCC_PIDGE64,&dbSpr_P_Pidg64);
+	SPR_SetPalette(SP_PALID_CARD64,SP_PALCC_PIDGE64,&dbSpr_P_Pidg64);
 	SPR_SetPalette(SP_PALID_SPR32,SP_PALCC_SPR32,&dbSpr_P_sprites32);
 	//split graphics into chucks of 128x32
 
@@ -53,10 +57,12 @@ int main()
     setScreenOn();
 
 
+
     IsRunning=true;
     GameState=GS_TS_INIT;
     PAD pad0;
-
+    u16 padCooldown = 0;
+    
     while(1)
     {
       switch(GameState)
@@ -64,31 +70,65 @@ int main()
       case GS_TS_INIT:
         TS_Init();
         ++GameState;
+        //set starting card to hovered card
+        Cards[3].sprite->updateXY=true;
+        Cards[3].sprite->y-=32;
+        hoveredCardIndex = 0;
         break;
       case GS_TS_RUN:
         TS_Run();
         break;
       }
 
+
       pad0 = padsCurrent(0);
       int speed = 3;
-      tSprite* pSP=&Sprites[3];
+      tCard* pCard = &Cards[hoveredCardIndex];
 
-      if (pad0){
-              // Update sprite with current pad
-        if(pad0 & J_UP) {
-          pSP->y-=speed;         
-        }
+      if (padCooldown > 0){
+        padCooldown--;
+      }
+      if (pad0 && padCooldown <= 0){
+        // Update sprite with current pad
+        // if(pad0 & J_UP) {
+        //   pSP->y-=speed;         
+        // }
         if(pad0 & J_LEFT) {
-          pSP->x-=speed;              
+          tSprite* pSP=pCard->sprite;
+          
+          pSP->updateXY=true;
+          pSP->y+=32;
+
+          hoveredCardIndex -= 1;
+
+          if (hoveredCardIndex < 0){
+            hoveredCardIndex = TS_CARDMAX-1;
+          }
+          pSP=&Sprites[hoveredCardIndex];
+          pSP->updateXY=true;
+          pSP->y-=32;
         }
         if(pad0 & J_RIGHT) {
-          pSP->x+=speed;
+          tSprite* pSP=pCard->sprite;
+          
+          pSP->updateXY=true;
+          pSP->y+=32;
+
+          hoveredCardIndex += 1;
+
+          if (hoveredCardIndex >= TS_CARDMAX){
+            hoveredCardIndex = 0;
+          }
+          pSP=&Sprites[hoveredCardIndex];
+          pSP->updateXY=true;
+          pSP->y-=32;
         }
-        if(pad0 & J_DOWN) {
-          pSP->y+=speed;
-        } 
+        // if(pad0 & J_DOWN) {
+        //   pSP->y+=speed;
+        // } 
+        padCooldown = PAD_COOLDOWN;
       }
+      // S2D_PrintDHNum8(S2D_BG_TOP,3,3, hoveredCardIndex, true);
       vsync();
 			S2D_Update();
     }

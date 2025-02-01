@@ -96,6 +96,7 @@ enum
 
 };
 
+
 typedef struct
 {
 	u16 id;
@@ -110,6 +111,14 @@ typedef struct
 	bool mirrorX;
 	bool isVisible;
 } tSprite;
+
+typedef struct
+{
+  u16 id;
+  u8 suit;
+  u8 rank;
+  tSprite *sprite;
+} tCard;
 
 extern void SPR_Init();
 extern void SPR_ClearAll();
@@ -127,7 +136,7 @@ extern void SPR_SetPosAndTile16(u8 spriteID,s16 x,s16 y,u16 base,u8 frame,u8 att
 extern void SPR_SetTileData16(u8 frameID,u8 frameCount,const u8* pGfx);
 extern u8 SPR_SpriteCount;
 extern u8 SPR_BatchCount;
-//sprite batch system
+//sprite batch syste
 extern tSprite SPR_Batch[SPR_MAX];
 //Note this is currently configured for 32 & 64 sized sprites, you will need
 //to change which LUT's are used for small and Large sprite types if you want a different
