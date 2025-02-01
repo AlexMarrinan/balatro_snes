@@ -46,7 +46,7 @@ int main()
     S2D_Init(0,0);
     
     //initialize sprites
-    SPR_Init();
+    SPR_Init(); 
     zInitGFX();
     setMode(BG_MODE1,BG3_MODE1_PRIORITY_HIGH);
 
@@ -72,12 +72,12 @@ int main()
 
       pad0 = padsCurrent(0);
       int speed = 3;
-      tSprite* pSP=&Sprites[0];
+      tSprite* pSP=&Sprites[3];
 
       if (pad0){
               // Update sprite with current pad
         if(pad0 & J_UP) {
-          pSP->y-=speed;              
+          pSP->y-=speed;         
         }
         if(pad0 & J_LEFT) {
           pSP->x-=speed;              

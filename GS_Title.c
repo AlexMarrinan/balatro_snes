@@ -5,7 +5,7 @@
 
 //these are the frame starting positions of 32x32 sprites
 #define SP_FS_MARIO 24
-#define SP_FS_TBIRD 28
+#define SP_FS_TBIRD 28 
 
 //these are the frame starting positions of 64x64 sprites
 #define SP_FS_CHICK 0
@@ -102,7 +102,7 @@ void MoveSprites()
 	for(n=0;n<TS_SpriteMax;n++)
 	{
 		x=pSP->x;
-		x++;
+		x++; 
 		if(pSP->id>eID_PIDGE)
 		{
 			if(x>256)
@@ -116,8 +116,9 @@ void MoveSprites()
 
 		pSP->x=x;
 		pSP->updateXY=true;
-		if(bAnimate)
-		{
+		//if(bAnimate)
+		if(false) 
+		{ 
 			pSP->updateFrame=true;
 			x=pSP->frame;
 			x++;
