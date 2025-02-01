@@ -162,24 +162,25 @@ void TS_Init()
 		{
 			S2D_SetAtribPalette(PAL_ID_GRASS);
 			S2D_TilePut32(S2D_BG_BOT,x,y,GFX_TS_GRASS);
-			if(x==0)
-			{
-				S2D_SetAtribPalette(PAL_ID_WALLS);
-				S2D_TilePut32(S2D_BG_TOP,x,y,GFX_TS_WALLS);
-			}
-			else if(x==28)
-			{
-				S2D_SetAtribPalette(PAL_ID_WALLS);
-				S2D_TilePut32(S2D_BG_TOP,x,y,GFX_TS_WALLS+32);
-			}
+			// if(x==0)
+			// {
+			// 	S2D_SetAtribPalette(PAL_ID_WALLS);
+			// 	S2D_TilePut32(S2D_BG_TOP,x,y,GFX_TS_WALLS);
+			// }
+			// else if(x==28)
+			// {
+			// 	S2D_SetAtribPalette(PAL_ID_WALLS);
+			// 	S2D_TilePut32(S2D_BG_TOP,x,y,GFX_TS_WALLS+32);
+			// }
 		}
 
-	S2D_SetAtribPalAndOnTop(PAL_ID_WALLS)						;
-	S2D_TilePut32(S2D_BG_BOT,14,y,GFX_TS_WALLS+16);
-
+	// S2D_SetAtribPalAndOnTop(PAL_ID_WALLS)						;
+	// S2D_TilePut32(S2D_BG_BOT,14,y,GFX_TS_WALLS+16);
 	}
 	S2D_SetAtribPalAndOnTop(PAL_ID_FONT);
-	S2D_PrintCentre(S2D_BG_TOP,2,"Sprite 32 & 64 Show");
+	S2D_PrintCentre(S2D_BG_TOP,2,"BALATRO");
+	S2D_Print(S2D_BG_TOP,3, 15,"100 x 50");
+
 	TickTimer_Init(&zTS_AnimTime,8);
 	bAnimate=false;
 	InitSprites();

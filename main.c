@@ -11,8 +11,8 @@ void zInitGFX()
 	S2D_SetTileDataCol16(S2D_BG1,GFX_TS_FONT,GFX_TC_FONT,&dbTiles_T_font16);
 	S2D_SetPaletteCol16(PAL_ID_FONT,PAL_CC_FONT,&dbTiles_P_font16);
 
-	S2D_SetTileDataCol16(S2D_BG1,GFX_TS_GRASS,GFX_TC_GRASS,gfxGrass);
-	S2D_SetPaletteCol16(PAL_ID_GRASS,PAL_CC_GRASS,palGrass);
+	S2D_SetTileDataCol16(S2D_BG1,GFX_TS_GRASS,GFX_TC_GRASS,gfxMenuBg);
+	S2D_SetPaletteCol16(PAL_ID_GRASS,PAL_CC_GRASS,palMenuBg);
 
 	S2D_SetTileDataCol16(S2D_BG1,GFX_TS_WALLS,GFX_TC_WALLS,gfxWalls);
 	S2D_SetPaletteCol16(PAL_ID_WALLS,PAL_CC_WALLS,palWalls);
@@ -49,8 +49,6 @@ int main()
     SPR_Init();
     zInitGFX();
     setMode(BG_MODE1,BG3_MODE1_PRIORITY_HIGH);
-
-
 
     setScreenOn();
 
