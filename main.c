@@ -70,10 +70,6 @@ int main()
       case GS_TS_INIT:
         TS_Init();
         ++GameState;
-        //set starting card to hovered card
-        Cards[3].sprite->updateXY=true;
-        Cards[3].sprite->y-=32;
-        hoveredCardIndex = 0;
         break;
       case GS_TS_RUN:
         TS_Run();
@@ -82,7 +78,6 @@ int main()
 
 
       pad0 = padsCurrent(0);
-      int speed = 3;
       tCard* pCard = &Cards[hoveredCardIndex];
 
       if (padCooldown > 0){

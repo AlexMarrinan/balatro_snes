@@ -24,16 +24,16 @@ enum
 tSprite Sprites[TS_SpriteMax];  
 tCard Cards[TS_CARDMAX];
 
-void DrawTileOffset32()
+void DrawTileOffset32() 
 {
 	u8 n;
 	for(n=0;n<SPR_LUT32_MAX;n++)
 	{
 		if(n<28)
-		{
+		{ 
 			S2D_PrintV(0,0,n,"LUT id%d = %d",(u16)n,SPR_ImgLUT32[n]);
 		}
-		else
+		else 
 		{
 			S2D_PrintV(16,0,(n-28),"LUT id%d = %d",(u16)n,SPR_ImgLUT32[n]);
 		}
@@ -63,6 +63,7 @@ void InitSprites()
 		xstart+=32;
 		++tp;
 		++pSP;
+		++pCard;
 	}
 }
 
@@ -81,33 +82,19 @@ void MoveSprites()
 
 void TS_Init()
 {
-	u8 x,y; 
-	S2D_Cls(S2D_BG1);
-	S2D_Cls(S2D_BG2);
-	S2D_SetAtribPalette(PAL_ID_GRASS);
-	for(y=0;y<28;y+=4)
-	{
-		for(x=0;x<32;x+=4)
-		{
-			S2D_SetAtribPalette(PAL_ID_GRASS);
-			S2D_TilePut32(S2D_BG_BOT,x,y,GFX_TS_GRASS);
-			// if(x==0)
-			// {
-			// 	S2D_SetAtribPalette(PAL_ID_WALLS);
-			// 	S2D_TilePut32(S2D_BG_TOP,x,y,GFX_TS_WALLS);
-			// }
-			// else if(x==28)
-			// {
-			// 	S2D_SetAtribPalette(PAL_ID_WALLS);
-			// 	S2D_TilePut32(S2D_BG_TOP,x,y,GFX_TS_WALLS+32);
-			// }
-		}
+	// u8 x,y; 
+	// S2D_Cls(S2D_BG1);
+	// S2D_Cls(S2D_BG2);
+	// S2D_SetAtribPalette(PAL_ID_GRASS);
+	// for(y=0;y<28;y+=4)  
+	// {
+	// 	for(x=0;x<32;x+=4)
+	// 	{
+	// 		S2D_SetAtribPalette(PAL_ID_GRASS);
+	// 		S2D_TilePut32(S2D_BG_BOT,x,y,GFX_TS_GRASS);
+	// 	}
+	// }
 
-	// S2D_SetAtribPalAndOnTop(PAL_ID_WALLS)						;
-	// S2D_TilePut32(S2D_BG_BOT,14,y,GFX_TS_WALLS+16);
-	}
-	// S2D_PrintDHNum8(S2D_BG_TOP,3,3, 123, true);
-	// S2D_SetAtribPalAndOnTop(PAL_ID_FONT);
 	S2D_PrintCentre(S2D_BG_TOP,2,"BALATRO");
 	S2D_Print(S2D_BG_TOP,3, 15,"100 x 50");
 

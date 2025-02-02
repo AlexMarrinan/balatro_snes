@@ -13,7 +13,7 @@
 #define GS_GM_RUN 3
 
 #define GS_HIGHSCORE 250
-#define TS_SpriteMax 4
+#define TS_SpriteMax 4 
 #define TS_CARDMAX 4
 
 #define SUITE_SPADE 0
