@@ -6,7 +6,7 @@ u16 G_HighScore;
 
 tSprite Sprites[TS_SpriteMax];
 tCard Cards[TS_CARDMAX]; 
-s8 hoveredCardIndex;
+s16 hoveredCardIndex;
 
 void zInitGFX()
 {
@@ -70,9 +70,14 @@ int main()
       case GS_TS_INIT:
         TS_Init();
         ++GameState;
+        hoveredCardIndex = 0;
+        tCard* pC = &Cards[hoveredCardIndex];
+        pC->sprite->updateXY=true;
+        pC->sprite->y-=32;
         break;
       case GS_TS_RUN:
         TS_Run();
+
         break;
       }
 
@@ -124,6 +129,9 @@ int main()
         padCooldown = PAD_COOLDOWN;
       }
       // S2D_PrintDHNum8(S2D_BG_TOP,3,3, hoveredCardIndex, true);
+      char str[10];
+      sprintf(str, "%d", (u16)hoveredCardIndex);
+      S2D_PrintCentre(S2D_BG_TOP,3,str);
       vsync();
 			S2D_Update();
     }

@@ -1,5 +1,7 @@
 #include "GS_Title.h"
 #include "SpriteManager.h"
+#include <stdio.h> 
+#include <stdlib.h>
 
 //these are the frame starting positions of 32x32 sprites
 #define SP_FS_MARIO 24
@@ -76,7 +78,7 @@ void MoveSprites()
 	{
 		pSP->updateXY=true;
 		SPR_BatchAdd(pSP);
-		++pSP;
+		++pSP; 
 	}
 }
 
@@ -94,9 +96,14 @@ void TS_Init()
 	// 		S2D_TilePut32(S2D_BG_BOT,x,y,GFX_TS_GRASS);
 	// 	}
 	// }
+	
+	u16 num = 100;
 
 	S2D_PrintCentre(S2D_BG_TOP,2,"BALATRO");
-	S2D_Print(S2D_BG_TOP,3, 15,"100 x 50");
+
+	//void S2D_PrintDHNum8(u8 layerID,u8 x,u8 y,u8 val8,bool bDrawZeros)
+
+	S2D_Print(S2D_BG_TOP,3, 12,"100 x 50");
 
 	TickTimer_Init(&zTS_AnimTime,8);
 	bAnimate=false;
