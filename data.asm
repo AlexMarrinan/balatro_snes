@@ -15,6 +15,10 @@ dbSpr_P_sprites32:	.incbin "res/sprites32.pal" ;32 bytes = 16 colours
 
 dbTiles_T_font16:		.incbin "res/Font1_16col.pic"; 4.1k
 dbTiles_P_font16:		.incbin "res/Font1_16col.pal"; 8bytes = 4 colours
-
 .ends
+
+.BANK 5
+.SECTION "SOUNDBANK0" ; need dedicated bank(s)
+SOUNDBANK__0:.incbin "res/soundbank.bnk"
+.ENDS
 

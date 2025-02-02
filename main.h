@@ -6,6 +6,7 @@
 #include "S2D.h"
 #include "Utils.h"
 #include "SpriteManager.h"
+#include "SoundManager.h"
 
 #define GS_TS_INIT 0
 #define GS_TS_RUN 1
@@ -13,7 +14,7 @@
 #define GS_GM_RUN 3
 
 #define GS_HIGHSCORE 250
-#define TS_SpriteMax 4 
+#define TS_SpriteMax 4
 #define TS_CARDMAX 4
 
 #define SUITE_SPADE 0

@@ -4,9 +4,13 @@ u16 GameState;
 bool IsRunning;
 u16 G_HighScore;
 
+#define MOD_POLLEN8                     	0
+
 tSprite Sprites[TS_SpriteMax];
 tCard Cards[TS_CARDMAX]; 
 s16 hoveredCardIndex;
+unsigned short bgcolor = 0xFF1cFF;
+extern char SOUNDBANK__;
 
 void zInitGFX()
 {
@@ -55,6 +59,10 @@ int main()
     setMode(BG_MODE1,BG3_MODE1_PRIORITY_HIGH);
 
     setScreenOn();
+    setPaletteColor(0x00, bgcolor);
+
+	  Snd_Init();
+		Snd_PlaySong(0);
 
 
 
@@ -133,6 +141,7 @@ int main()
       sprintf(str, "%d", (u16)hoveredCardIndex);
       S2D_PrintCentre(S2D_BG_TOP,3,str);
       vsync();
+      Snd_Update();
 			S2D_Update();
     }
 return 0;

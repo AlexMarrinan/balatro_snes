@@ -19,9 +19,9 @@ u8 tp=8;
 enum
 {
 	eID_CHICK=0,
-	eID_PIDGE,
-	eID_OTHER
-};
+	eID_PIDGE, 
+	eID_OTHER  
+}; 
 
 tSprite Sprites[TS_SpriteMax];  
 tCard Cards[TS_CARDMAX];
@@ -46,14 +46,14 @@ void InitSprites()
 {
 	u8 n,g;
 	u8 ystart=160;
-	u8 xstart=0;
+	u8 xstart=96;
 	u8 ystart2=0;
 	u8 xstart2=160;
 	tSprite* pSP=&Sprites[0];
 	tCard* pCard=&Cards[0];
 
 	g=0;
-	for(n=0;n<TS_SpriteMax;n++)
+	for(n=0;n<TS_CARDMAX;n++)
 	{
 		SPR_SetTSprite64(pSP,xstart,ystart,SP_FS_CARD,SP_PALID_CARD64);
 		pSP->id=eID_OTHER;
@@ -62,7 +62,7 @@ void InitSprites()
 		pCard->suit=SUITE_SPADE;
 		pCard->rank=0;
 		pCard->sprite=pSP;
-		xstart+=32;
+		xstart+=16;
 		++tp;
 		++pSP;
 		++pCard;
@@ -97,13 +97,11 @@ void TS_Init()
 	// 	}
 	// }
 	
-	u16 num = 100;
-
-	S2D_PrintCentre(S2D_BG_TOP,2,"BALATRO");
 
 	//void S2D_PrintDHNum8(u8 layerID,u8 x,u8 y,u8 val8,bool bDrawZeros)
 
 	S2D_Print(S2D_BG_TOP,3, 12,"100 x 50");
+	S2D_PrintCentre(S2D_BG_TOP,2,"BALATRO");
 
 	TickTimer_Init(&zTS_AnimTime,8);
 	bAnimate=false;

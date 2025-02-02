@@ -1,6 +1,7 @@
 [objects]
 GS_Title.obj
 S2D.obj
+SoundManager.obj
 SpriteManager.obj
 Utils.obj
 gfxTiles.obj
