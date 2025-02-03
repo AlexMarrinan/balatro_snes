@@ -5,11 +5,10 @@ void Snd_Init()
 	u8 I;
   spcBoot();
 	spcAllocateSoundRegion(39);
-  // spcSetBank(&SOUNDBANK__1);
-  spcSetBank(&SOUNDBANK__0);
+  spcSetBank(&SOUNDBANK__);
 
   //load sfx
-  spcLoad(MOD_TESTSONG);
+  spcLoad(MOD_TESTSONG); 
   vsync();
   // allocate around 10K of sound ram (39 256-byte blocks)
 

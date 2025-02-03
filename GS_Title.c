@@ -11,16 +11,17 @@
 #define SP_FS_CHICK 0
 #define SP_FS_CARD 2
 
-tTickTimer zTS_AnimTime;
+u16 bgcolor = 0x01E3; 
+tTickTimer zTS_AnimTime; 
 bool bAnimate; 
 u8 tp=8;
 //this is used to track sprite types, as they have different amounts of
 //animation frames
 enum
 {
-	eID_CHICK=0,
+	eID_CHICK=0, 
 	eID_PIDGE, 
-	eID_OTHER  
+	eID_OTHER   
 }; 
 
 tSprite Sprites[TS_SpriteMax];  
@@ -106,6 +107,7 @@ void TS_Init()
 	TickTimer_Init(&zTS_AnimTime,8);
 	bAnimate=false;
 	InitSprites();
+	setPaletteColor(0x00, bgcolor);
 }
 
 void TS_Run()

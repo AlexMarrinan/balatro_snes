@@ -7,6 +7,7 @@ Utils.obj
 gfxTiles.obj
 main.obj
 menu_bg.obj
+res/soundbank.obj
 data.obj
 hdr.obj
 c:\pvsneslib\pvsneslib\lib\LoROM_SlowROM/crt0_snes.obj

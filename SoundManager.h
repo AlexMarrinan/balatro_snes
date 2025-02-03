@@ -20,7 +20,7 @@ enum
 };
 
 // soundbank that are declared in soundbank.asm
-extern char SOUNDBANK__0,SOUNDBANK__1;
+extern char SOUNDBANK__;
 
 extern void Snd_Init();
 extern void Snd_PlaySfx(u8 id,u8 pitch);

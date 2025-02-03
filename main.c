@@ -9,7 +9,6 @@ u16 G_HighScore;
 tSprite Sprites[TS_SpriteMax];
 tCard Cards[TS_CARDMAX]; 
 s16 hoveredCardIndex;
-unsigned short bgcolor = 0xFF1cFF;
 extern char SOUNDBANK__;
 
 void zInitGFX()
@@ -59,7 +58,6 @@ int main()
     setMode(BG_MODE1,BG3_MODE1_PRIORITY_HIGH);
 
     setScreenOn();
-    setPaletteColor(0x00, bgcolor);
 
 	  Snd_Init();
 		Snd_PlaySong(0);
