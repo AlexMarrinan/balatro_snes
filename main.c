@@ -9,7 +9,7 @@ u16 G_HighScore;
 tSprite Sprites[TS_SpriteMax];
 tCard Cards[TS_CARDMAX]; 
 s16 hoveredCardIndex;
-extern char SOUNDBANK__;
+extern char SOUNDBANK__1, SOUNDBANK__0;
 
 void zInitGFX()
 {

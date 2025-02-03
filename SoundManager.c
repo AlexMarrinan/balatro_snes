@@ -5,7 +5,8 @@ void Snd_Init()
 	u8 I;
   spcBoot();
 	spcAllocateSoundRegion(39);
-  spcSetBank(&SOUNDBANK__);
+  spcSetBank(&SOUNDBANK__1);
+  spcSetBank(&SOUNDBANK__0);
 
   //load sfx
   spcLoad(MOD_TESTSONG); 
