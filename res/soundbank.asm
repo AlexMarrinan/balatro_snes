@@ -1,6 +1,6 @@
 ;************************************************
 ; snesmod soundbank data                        *
-; total size:      45800 bytes                  *
+; total size:      49664 bytes                  *
 ;************************************************
 
 .include "hdr.asm"
